@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { useEffect } from "react";
+import { PopUpContent, TransParentBackGournd } from "./PopupStyleComponents";
 
 const SmallPopUpContent = styled.div`
   display: flex;
@@ -68,15 +69,6 @@ const NumericKey = styled.button`
   font-size: 20px;
 `;
 
-const PopUpContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  font-size: 30px;
-`;
 
 export default function Pointpopup({ onClose, onRegister }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -132,22 +124,11 @@ export default function Pointpopup({ onClose, onRegister }) {
             <NumericKey onClick={handleOneStepClearButtonClick}> 지우기</NumericKey>
           </NumericKeypad>
           {completedPoint && (
-            <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "rgba(0, 82, 212, 0.70)",
-              zIndex: 9999,
-              color: "white",
-            }}
-          >
+            <TransParentBackGournd>
               <PopUpContent>
                 <span>포인트 적립 완료</span>
               </PopUpContent>
-            </div>
+            </TransParentBackGournd>
           )}
     </SmallPopUpContent>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { styled } from "styled-components";
+import { TransParentBackGournd } from "./PopupStyleComponents";
 
 const ReceiptContainer = styled.div`
   display: flex;
@@ -20,23 +21,11 @@ const ShowReceiptPopup = ({ onClose }) => {
   }, [onClose]);
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0, 82, 212, 0.70)",
-        zIndex: 9999,
-        color: "white",
-      }}
-    >
-
+    <TransParentBackGournd>
       <ReceiptContainer>
           <span>영수증 발급 완료</span>
         </ReceiptContainer>
-    </div>
+    </TransParentBackGournd>
   );
 };
 
