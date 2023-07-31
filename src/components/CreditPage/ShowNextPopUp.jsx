@@ -20,11 +20,11 @@ const ShowNextPopUp = ({ onReceiptButtonClick, onPointButtonClick }) => {
             <span>결제 완료</span>
           </IndentedContainer>
         </Upper>
+        <PopUpButton onClick={onReceiptButtonClick}>영수증 받기</PopUpButton>
+        <PopUpButton onClick={onPointButtonClick}>포인트 적립하기</PopUpButton>
         <IndentedContainer>
           <span>주문 번호: 00번</span>
         </IndentedContainer>
-        <PopUpButton onClick={onReceiptButtonClick}>영수증 받기</PopUpButton>
-        <PopUpButton onClick={onPointButtonClick}>포인트 적립하기</PopUpButton>
       </PopUpContent>
     </TransParentBackGournd>
   );
