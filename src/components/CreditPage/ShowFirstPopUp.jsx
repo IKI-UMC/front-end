@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { styled } from "styled-components";
 
 
-
 const PopUpContent = styled.div`
   display: flex;
   flex-direction: column;

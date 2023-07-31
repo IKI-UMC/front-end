@@ -2,9 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 
 const PopUpButton = styled.button`
+  border: 0;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
   background: #FFF;
   width: 295px;
   height: 92px;
@@ -36,16 +37,15 @@ export default function ShowTakeoutPopUp({ onShowFirstPopUp }) {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(0, 82, 212, 0.70)",
+        backgroundColor: "rgba(0, 46, 207, 0.65)",
         zIndex: 9999,
         color: "white",
       }}
     >
       <PopUpContent>
         <IndentedContainer>
-          <span>
+          <span style={{lineHeight: 1.5}}>
             포장여부를 선택하면
-            <br />
             <br />
             결제가 진행됩니다.
           </span>
