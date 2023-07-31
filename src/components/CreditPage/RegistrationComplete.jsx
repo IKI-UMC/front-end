@@ -1,18 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
+import { TransParentBackGournd } from "./PopupStyleComponents";
 
-const RegistrationCompleteContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 82, 212, 0.70);
-  z-index: 9999;
+const RegistrationCompleteContainer = styled(TransParentBackGournd)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   font-size: 25px;
 `;
 
