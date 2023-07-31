@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Header from "../header/Header";
+import Header from "./Header";
 import { MasonryMenuContainer } from "./MasonryMenuContainer";
 import FooterCart from "./cart/FooterCart";
 
