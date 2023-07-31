@@ -44,6 +44,11 @@ const RegisterButton = styled.button`
   background: var(--primary-color);
   color: white;
   font-weight: bold;
+  &:hover{
+    background-color: white;
+    color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+  }
 `;
 
 const NumericKeypad = styled.div`

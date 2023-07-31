@@ -10,6 +10,11 @@ export const PopUpButton = styled.button`
   height: 92px;
   flex-shrink: 0;
   font-size: 25px;
+  /* 선택된 메뉴 블록의 스타일*/
+  &:hover{
+    background-color: var(--primary-color);
+    color: white;
+  }
 `;
 
 export const PopUpContent = styled.div`
@@ -27,7 +32,7 @@ export const IndentedContainer = styled.div`
   white-space: pre-wrap;
 `;
 
-export const TransParentBackGournd=styled.div`
+export const TransParentBackGournd = styled.div`
     position: fixed;
     top: 0;
     left: 0;
