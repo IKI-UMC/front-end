@@ -59,8 +59,8 @@ const NumericKeypad = styled.div`
 `;
 const NumericKey = styled.button`
   border:0;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
   padding: 1rem;
   border-radius: 5px;
   background: var(--secondary-color);
@@ -119,9 +119,15 @@ export default function Pointpopup({ onClose, onRegister }) {
         <NumericKey onClick={() => handleNumericKeyClick("7")}>7</NumericKey>
         <NumericKey onClick={() => handleNumericKeyClick("8")}>8</NumericKey>
         <NumericKey onClick={() => handleNumericKeyClick("9")}>9</NumericKey>
-        <NumericKey onClick={() => handleNumericKeyClick("010")}>010</NumericKey>
+        <NumericKey 
+          onClick={() => handleNumericKeyClick("010")}
+          style={{backgroundColor:"rgba(0, 46, 207, 0.65)", color: "white"}}
+          >010
+        </NumericKey>
         <NumericKey onClick={() => handleNumericKeyClick("0")}>0</NumericKey>
-        <NumericKey onClick={handleOneStepClearButtonClick}> 지우기</NumericKey>
+        <NumericKey 
+          onClick={handleOneStepClearButtonClick}
+          style={{fontSize:"1rem"}}> 지우기</NumericKey>
       </NumericKeypad>
       {completedPoint && (
         <div style={{
