@@ -56,6 +56,7 @@ const NumericKeypad = styled.div`
   grid-template-columns: repeat(3, minmax(0, 1fr)); /* Update this line */
   gap: 7px;
   margin-top: 1rem;
+  
 `;
 const NumericKey = styled.button`
   border:0;
@@ -65,6 +66,11 @@ const NumericKey = styled.button`
   border-radius: 5px;
   background: var(--secondary-color);
   font-size: 1.3rem;
+  
+  &:hover{
+    color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+  }
 `;
 
 
