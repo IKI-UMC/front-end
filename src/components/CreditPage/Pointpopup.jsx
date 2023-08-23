@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 import { useEffect } from "react";
 import { PopUpContent } from "./PopupStyleComponents";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const SmallPopUpContent = styled(PopUpContent)`
   height: 50vh;
@@ -73,9 +75,13 @@ const NumericKey = styled.button`
 `;
 
 export default function Pointpopup({ onClose, onRegister }) {
+
+
   const [enteredNumber, setEnteredNumber] = useState("");
   const [completedPoint, setcompletedPoint] = useState(false);
   const [orderId, setOrderId] = useState(null); // orderId 상태값 추가
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // 이전 컴포넌트에서 주문 ID를 설정하면 해당 값을 orderId 상태에 설정
@@ -99,35 +105,33 @@ export default function Pointpopup({ onClose, onRegister }) {
       orderId, // 이 부분은 실제로 주문 ID 값을 어떻게 가져올지에 따라 변경해야 합니다.
     };
 
+  
     try {
       // 백엔드 API 호출
       const response = await axios.post(
         "https://iki.digital:8080/api/v1/customers", // API 엔드포인트 주소
         requestData
       );
-
+  
       // 응답 데이터 확인 및 포인트 적립 완료 처리
       if (response.data.httpStatus === 200) {
         setcompletedPoint(true);
-        // console.log("포인트적립 완료", response);
+        
+        // Use the `navigate` function to navigate to the main page
+        console.log("포인트 적립 완료");
+        setTimeout(() => {
+          setcompletedPoint(false);
+
+
+
+        }, 5000);
+        window.location.replace("/main")
       }
     } catch (error) {
-      console.error("Error while saving points:", error);
+      console.error("포인트를 저장하는 동안 오류 발생:", error);
       // 오류 처리 로직 추가 (예: 오류 메시지 표시)
     }
   };
-
-  useEffect(() => {
-    if (completedPoint) {
-      const timeout = setTimeout(() => {
-        setcompletedPoint(false);
-        // 페이지 이동
-        window.location.href = "http://localhost:3000/main"; // 메인 페이지의 URL로 변경해야 합니다.
-      }, 3000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [completedPoint]);
 
   return (
     <SmallPopUpContent>
