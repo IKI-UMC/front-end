@@ -4,7 +4,6 @@ import axios from "axios";
 import convertPrice from "../../utils/convertPrice";
 import Header from "../header/Header";
 import {
-  EditOptionCategoryModal,
   AddOptionModal,
   EditOptionModal,
   DeleteOptionModal,
@@ -13,7 +12,6 @@ import { StyleSheetManager } from "styled-components"; // 다음 warning 제거�
 import {
   PlusButton,
   Btn,
-  SmallBtn,
   XBtn,
   BackBtn,
 } from "./adminItems/AdminButtonCSS";
@@ -41,8 +39,8 @@ export default function AdminOption() {
     menuOptionsPrice: 0, // 혹은 다른 초기값으로 설정
     mandatory: false, // 혹은 다른 초기값으로 설정
   });
-  const [isEditOptionCategoryModalOpen, setIsEditOptionCategoryModalOpen] =
-    useState(false);
+  // const [isEditOptionCategoryModalOpen, setIsEditOptionCategoryModalOpen] =
+  //   useState(false);
   const [options, setOptions] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
@@ -71,10 +69,9 @@ export default function AdminOption() {
     }
     fetchOptions();
   }, []);
+  
+  
 
-  const handleEditOptionCategory = () => {
-    setIsEditOptionCategoryModalOpen(true);
-  };
 
   const handleAdd = () => {
     setIsAddModalOpen(true);
@@ -117,7 +114,6 @@ export default function AdminOption() {
       <div style={{ padding: "8px 0", fontWeight: "bold" }}>메뉴명</div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <GroupName>{options.menusName}</GroupName>
-        {/* <SmallBtn onClick={handleEditOptionCategory}>수정</SmallBtn> */}
       </div>
       <StyleSheetManager shouldForwardProp={(prop) => prop !== "hide"}>
         <EachOption hide={"true"}>

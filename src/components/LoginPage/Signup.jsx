@@ -4,14 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import {
-  LoginBox,
-  Logos,
-  FormInput,
-  FormLabel,
-  SubmitBtn,
-  Trash,
-} from "./loginItems/loginItemCSS";
+
+import { LoginBox, Logos, FormInput, SubmitBtn, Trash } from './loginItems/loginItemCSS';
 
 const SignUpForm = styled.div`
   display: flex;
@@ -19,39 +13,14 @@ const SignUpForm = styled.div`
   align-items: center;
 `;
 
-const VerificationButton = styled.button`
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-`;
 
-const SubmitButton = styled.input`
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
-`;
 
 const SignUp = () => {
-  const [ownerName, setOwnerName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [shopName, setShopName] = useState("");
+
+  const [ownerName, setOwnerName] = useState('');
+  const [password, setPassword] = useState('');
+  const [shopName, setShopName] = useState('');
+
 
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -85,8 +54,6 @@ const SignUp = () => {
     <LoginBox>
       <SignUpForm onSubmit={handleSignUp}>
         <Logos />
-
-        {/* <FormLabel htmlFor="nickname">사용자명</FormLabel> */}
         <FormInput
           type="text"
           name="ownerName"
@@ -96,7 +63,6 @@ const SignUp = () => {
           placeholder="아이디"
         />
 
-        {/* <FormLabel htmlFor="password">비밀번호</FormLabel> */}
         <FormInput
           type="password"
           name="password"
@@ -105,17 +71,6 @@ const SignUp = () => {
           required
           placeholder="비밀번호"
         />
-        {/* <FormLabel htmlFor="confirmPassword">비밀번호 확인</FormLabel> */}
-        {/* <FormInput
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          placeholder='비밀번호 확인'
-        /> */}
-
-        {/* <FormLabel htmlFor="shopName">가게이름</FormLabel> */}
         <FormInput
           type="text"
           name="shopName"

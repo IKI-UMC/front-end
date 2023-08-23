@@ -4,7 +4,14 @@ import axios from "axios";
 import Header from "../header/Header";
 import { StyleSheetManager } from "styled-components"; // 다음 warning 제거하려 추가: StyledComponent.ts:139 styled-components: it looks like an unknown prop "hide" is being sent through to the DOM, which will likely trigger a React console error.
 import convertPrice from "../../utils/convertPrice";
-import { PlusButton, Btn, XBtn, BackBtn } from "./adminItems/AdminButtonCSS";
+
+import {
+  PlusButton,
+  Btn,
+  XBtn,
+  BackBtn,
+} from "./adminItems/AdminButtonCSS";
+
 import {
   PageBox,
   GroupName,
@@ -40,9 +47,9 @@ export default function AdminMenu() {
     menusList: [],
   });
 
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] =
-    useState(false); // 메뉴 삭제 확인 모달의 가시성 상태
+
+  const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false); // 메뉴 삭제 확인 모달의 가시성 상태
+
 
   const getMenus = async () => {
     try {

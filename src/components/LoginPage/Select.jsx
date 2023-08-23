@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { LoginBox, Logos, SubmitBtn, FormInput, FormLabel, Trash } from './loginItems/loginItemCSS';
+import { LoginBox, Logos, SubmitBtn, Trash } from './loginItems/loginItemCSS';
 
 const SubmitBtn2 = styled.button`
     border: 0;

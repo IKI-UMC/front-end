@@ -59,16 +59,7 @@ export const AddOptionModal = ({ onClose, menusId, onAddOption }) => {
   return (
     <PopupBox>
       <ModalTitle>옵션명/가격을 입력해주세요.</ModalTitle>
-
-      <CheckboxLabel>
-        <input
-          type="checkbox"
-          checked={isRequired}
-          onChange={handleRequiredChange}
-        />
-        필수
-      </CheckboxLabel>
-      <Box>
+      <Box style={{flexWrap:"wrap", }}>
         <TitlePlusInput>
           <InputTitle>종류</InputTitle>
           <Input
@@ -97,6 +88,14 @@ export const AddOptionModal = ({ onClose, menusId, onAddOption }) => {
           />
         </TitlePlusInput>
       </Box>
+      <CheckboxLabel>
+        <input
+          type="checkbox"
+          checked={isRequired}
+          onChange={handleRequiredChange}
+        />
+        필수
+      </CheckboxLabel>
       <InputButton onClick={handleAddOption}>입력 완료</InputButton>
       <CloseButton onClose={onClose} />
     </PopupBox>
@@ -165,15 +164,8 @@ export const EditOptionModal = ({
   return (
     <PopupBox>
       <ModalTitle>옵션 정보를 수정해주세요.</ModalTitle>
-      <CheckboxLabel>
-        <input
-          type="checkbox"
-          checked={inputIsRequired}
-          onChange={handleRequiredChange}
-        />
-        필수
-      </CheckboxLabel>
-      <Box>
+      
+      <Box style={{flexWrap:"wrap"}}>
         <TitlePlusInput>
           <InputTitle>종류</InputTitle>
           <Input
@@ -202,6 +194,14 @@ export const EditOptionModal = ({
           />
         </TitlePlusInput>
       </Box>
+      <CheckboxLabel>
+        <input
+          type="checkbox"
+          checked={inputIsRequired}
+          onChange={handleRequiredChange}
+        />
+        필수
+      </CheckboxLabel>
       <InputButton onClick={handleEditOption}>입력 완료</InputButton>
       <CloseButton onClose={onClose} />
     </PopupBox>

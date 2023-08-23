@@ -37,6 +37,7 @@ export default function FooterCart({
     if (newToggleValue === false) {
       if (updatedCart.length > 0) {
         try {
+          // const res = await axios.put(
           await axios.put(`${process.env.REACT_APP_SERVER_IP}/api/v1/cart`, {
             cartId: Number(cartId),
             orderMenuUpdateRequestDtoList: updatedCart,
