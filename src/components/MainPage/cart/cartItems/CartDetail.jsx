@@ -50,7 +50,7 @@ export default function CartDetail({
       ? cartData.orderMenuResponseDtoList.map((item) => ({
           ...item,
           deleted: false,
-          orderMenuOptions: undefined,
+          // orderMenuOptions: undefined,
         }))
       : [];
 
@@ -117,8 +117,9 @@ export default function CartDetail({
               !order.deleted && (
                 <CartItem key={order.orderMenuId}>
                   <div>{order.orderMenuName}</div>
-                  {order.orderMenuOptions ? (
-                    <div>{order.orderMenuOptions}</div>
+                  {order.orderMenuOptions &&
+                  order.orderMenuOptions.length > 0 ? (
+                    <div>{order.orderMenuOptions.join(", ")}</div>
                   ) : (
                     <div>-</div>
                   )}
