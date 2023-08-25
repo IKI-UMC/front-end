@@ -20,7 +20,7 @@ const ShowReceiptPopup = () => {
     // Clean up the timeout on component unmount
     return () => clearTimeout(timeout);
   }, []);
-
+ 
   return (
     <TransParentBackGournd>
       <ReceiptContainer>
