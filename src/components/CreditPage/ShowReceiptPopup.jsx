@@ -12,13 +12,15 @@ const ReceiptContainer = styled.div`
 
 const ShowReceiptPopup = () => {
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      // Navigate to a new URL after 3 seconds
+    // Set a timeout to redirect to "/main" after 3 seconds
+    const redirectTimeout = setTimeout(() => {
       window.location.replace("/main");
     }, 3000);
 
-    // Clean up the timeout on component unmount
-    return () => clearTimeout(timeout);
+    // Clean up the timeout if the component unmounts
+    return () => {
+      clearTimeout(redirectTimeout);
+    };
   }, []);
  
   return (
