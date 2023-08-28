@@ -104,7 +104,6 @@ export default function Pointpopup({ onClose, onRegister }) {
       customerNumber: enteredNumber,
       orderId, // 이 부분은 실제로 주문 ID 값을 어떻게 가져올지에 따라 변경해야 합니다.
     };
-
   
     try {
       // 백엔드 API 호출
@@ -116,16 +115,13 @@ export default function Pointpopup({ onClose, onRegister }) {
       // 응답 데이터 확인 및 포인트 적립 완료 처리
       if (response.data.httpStatus === 200) {
         setcompletedPoint(true);
-        
-        // Use the `navigate` function to navigate to the main page
-        console.log("포인트 적립 완료");
+  
+        // 포인트 적립 완료 팝업 창을 5초 동안 띄우고 페이지를 이동합니다.
         setTimeout(() => {
           setcompletedPoint(false);
-
-
-
+          // Use window.location.replace to navigate to "/main"
+          window.location.replace("/main");
         }, 5000);
-        window.location.replace("/main")
       }
     } catch (error) {
       console.error("포인트를 저장하는 동안 오류 발생:", error);
