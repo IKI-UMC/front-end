@@ -52,16 +52,15 @@ export default function PayButton({ updatedCart }) {
 
     const cartId = localStorage.getItem("cartId");
     try {
-      const res = await axios.put(
-        `${process.env.REACT_APP_SERVER_IP}/api/v1/cart`,
-        {
+      await axios
+        .put(`${process.env.REACT_APP_SERVER_IP}/api/v1/cart`, {
           cartId: Number(cartId),
           orderMenuUpdateRequestDtoList: updatedCart,
-        }
-      );
-      //console.log("###", res);
-      const totalPrice = res.data.responseData.totalPrice;
-      localStorage.setItem("totalPrice", totalPrice);
+        })
+        .then((res) => {
+          const totalPrice = res.data.responseData.totalPrice;
+          localStorage.setItem("totalPrice", totalPrice);
+        });
     } catch (error) {
       console.error("카트 업데이트 실패:", error);
     }
