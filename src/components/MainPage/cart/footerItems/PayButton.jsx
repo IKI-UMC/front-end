@@ -105,7 +105,7 @@ export default function PayButton() {
       const timeout = setTimeout(() => {
         setShowReceiptPopup(false);
         // 페이지 이동
-        window.location.href = "http://localhost:3000/main"; // 메인 페이지의 URL로 변경해야 합니다.
+        window.location.replace("/main"); // 메인 페이지의 URL로 변경해야 합니다.
       }, 3000);
 
       return () => clearTimeout(timeout);
