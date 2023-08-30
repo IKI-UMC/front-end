@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { TransParentBackGournd } from "./PopupStyleComponents";
 
@@ -11,18 +11,12 @@ const ReceiptContainer = styled.div`
 `;
 
 const ShowReceiptPopup = () => {
-  useEffect(() => {
-    // Set a timeout to redirect to "/main" after 3 seconds
-    const redirectTimeout = setTimeout(() => {
-      window.location.replace("/main");
-    }, 3000);
 
-    // Clean up the timeout if the component unmounts
-    return () => {
-      clearTimeout(redirectTimeout);
-    };
-  }, []);
- 
+  setTimeout(() => {
+
+    window.location.replace("/main");
+  }, 3000);
+
   return (
     <TransParentBackGournd>
       <ReceiptContainer>
