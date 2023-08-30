@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 
 import Pointpopup from "./../../../CreditPage/Pointpopup";
 import ShowTakeoutPopUp from "../../../CreditPage/ShowTakeoutPopUp";
@@ -13,7 +14,6 @@ const MainBox = styled.div`
   padding: 1vw 1.2vw;
   height: 100vh; /* Modify later to fit the length of the menu board */
 `;
-
 
 const PayButtonBox = styled.button`
   background-color: var(--primary-color);
@@ -32,7 +32,7 @@ const PayButtonBox = styled.button`
   }
 `;
 
-export default function PayButton() {
+export default function PayButton({ updatedCart }) {
   const [isPaymentComplete, setPaymentComplete] = useState(false);
   const [showTakeoutPopUp, setShowTakeoutPopUp] = useState(false);
   const [showFirstPopUp, setFirstShowPopUp] = useState(false);
@@ -41,14 +41,28 @@ export default function PayButton() {
   const [showSmallPopUp, setShowSmallPopUp] = useState(false);
   const [showReceiptPopup, setShowReceiptPopup] = useState(false);
 
-  const PaymentCancel=()=>{
+  const PaymentCancel = () => {
     setShowTakeoutPopUp(false);
     setPaymentComplete(false);
-  }
+  };
 
-  const handlePayButtonClick = () => {
+  const handlePayButtonClick = async () => {
     setPaymentComplete(true);
     setShowTakeoutPopUp(true);
+
+    const cartId = localStorage.getItem("cartId");
+    try {
+      const res = await axios.put(
+        `${process.env.REACT_APP_SERVER_IP}/api/v1/cart`,
+        {
+          cartId: Number(cartId),
+          orderMenuUpdateRequestDtoList: updatedCart,
+        }
+      );
+      console.log("###", res);
+    } catch (error) {
+      console.error("카트 업데이트 실패:", error);
+    }
   };
 
   const openReceiptPopup = () => {
@@ -119,7 +133,10 @@ export default function PayButton() {
       ) : (
         <MainBox>
           {showTakeoutPopUp && ( //포장/매장 여부 선택 팝업
-            <ShowTakeoutPopUp onShowFirstPopUp={openShowFirstPopUp} PaymentCancel={PaymentCancel}/>
+            <ShowTakeoutPopUp
+              onShowFirstPopUp={openShowFirstPopUp}
+              PaymentCancel={PaymentCancel}
+            />
           )}
 
           {showFirstPopUp && ( // 카드를 넣어주세요 선택 팝업

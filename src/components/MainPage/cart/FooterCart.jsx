@@ -111,7 +111,7 @@ export default function FooterCart({
         />
         {/* <div>장바구니 업데이트시 반영:{totalPrice}</div>
         <div>메뉴에서 담을시 반영:{updatedPrice}</div> */}
-        <Footer totalPrice={mostRecentPrice} />
+        <Footer totalPrice={mostRecentPrice} updatedCart={updatedCart} />
         {/* <div style={{ background: "pink" }}>{totalPrice}</div> */}
       </FooterCartBox>
     </>
