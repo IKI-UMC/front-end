@@ -59,7 +59,9 @@ export default function PayButton({ updatedCart }) {
           orderMenuUpdateRequestDtoList: updatedCart,
         }
       );
-      console.log("###", res);
+      //console.log("###", res);
+      const totalPrice = res.data.responseData.totalPrice;
+      localStorage.setItem("totalPrice", totalPrice);
     } catch (error) {
       console.error("카트 업데이트 실패:", error);
     }
