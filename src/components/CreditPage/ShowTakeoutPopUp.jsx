@@ -32,7 +32,9 @@ export default function ShowTakeoutPopUp({ onShowFirstPopUp, PaymentCancel }) {
         onShowFirstPopUp(true);
         localStorage.setItem("cartId", null);
         const orderId = response.data.responseData.orderId;
+        const orderNumber = response.data.responseData.ordernumber;
         localStorage.setItem("orderId", orderId); // Store orderId in localStorage
+        localStorage.setItem("orderNumber", orderNumber);
       })
       .catch((error) => {
         // 요청이 실패한 경우에 실행할 코드
