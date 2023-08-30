@@ -73,8 +73,8 @@ export default function FooterCart({
       const response = await axios.get(
         `${process.env.REACT_APP_SERVER_IP}/api/v1/cart/${cartId}`
       );
-      const totalPrice = response.data.responseData.totalPrice;
-      localStorage.setItem("totalPrice", totalPrice); // Store orderId in localStorage
+      //const totalPrice = response.data.responseData.totalPrice;
+      // localStorage.setItem("totalPrice", totalPrice); // Store orderId in localStorage
       // console.log("CART::", response.data.responseData);
 
       //삭제한 메뉴를 메뉴판 UI에 적용
@@ -111,7 +111,7 @@ export default function FooterCart({
         />
         {/* <div>장바구니 업데이트시 반영:{totalPrice}</div>
         <div>메뉴에서 담을시 반영:{updatedPrice}</div> */}
-        <Footer totalPrice={mostRecentPrice} />
+        <Footer totalPrice={mostRecentPrice} updatedCart={updatedCart} />
         {/* <div style={{ background: "pink" }}>{totalPrice}</div> */}
       </FooterCartBox>
     </>

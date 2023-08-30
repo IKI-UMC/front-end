@@ -18,7 +18,7 @@ const CancleBtnBox = styled.div`
 
 export default function ShowTakeoutPopUp({ onShowFirstPopUp, PaymentCancel }) {
   const handleTakeout = (takeOut) => {
-    const cartId = 1; // 장바구니 ID
+    const cartId = localStorage.getItem("cartId");
 
     // API 요청을 보내는 코드
     axios
@@ -33,6 +33,10 @@ export default function ShowTakeoutPopUp({ onShowFirstPopUp, PaymentCancel }) {
         localStorage.setItem("cartId", null);
         const orderId = response.data.responseData.orderId;
         localStorage.setItem("orderId", orderId); // Store orderId in localStorage
+        // console.log("order response", response);
+
+        const orderNumber = response.data.responseData.orderNumber;
+        localStorage.setItem("orderNumber", orderNumber);
       })
       .catch((error) => {
         // 요청이 실패한 경우에 실행할 코드

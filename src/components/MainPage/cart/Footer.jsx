@@ -16,11 +16,13 @@ const FooterBox = styled.div`
   font-size: var(--font-big);
 `;
 
-export default function Footer({ totalPrice }) {
+export default function Footer({ totalPrice, updatedCart }) {
   return (
     <FooterBox>
       <Price price={totalPrice} />
-      {typeof totalPrice === "number" && <PayButton />}
+      {typeof totalPrice === "number" && (
+        <PayButton updatedCart={updatedCart} />
+      )}
     </FooterBox>
   );
 }
